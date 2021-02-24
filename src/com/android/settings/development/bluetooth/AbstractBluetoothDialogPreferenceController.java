@@ -38,9 +38,7 @@ public abstract class AbstractBluetoothDialogPreferenceController extends
 
     private static final String TAG = "AbstractBtDlgCtr";
 
-    protected static final int[] CODEC_TYPES = {BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_TWSP,
-            BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC,
-            BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE,
+    protected static final int[] CODEC_TYPES = {BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC,
             BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_HD,
             BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX,
             BluetoothCodecConfig.SOURCE_CODEC_TYPE_AAC,
@@ -55,8 +53,7 @@ public abstract class AbstractBluetoothDialogPreferenceController extends
             BluetoothCodecConfig.BITS_PER_SAMPLE_24,
             BluetoothCodecConfig.BITS_PER_SAMPLE_16};
     protected static final int[] CHANNEL_MODES = {BluetoothCodecConfig.CHANNEL_MODE_STEREO,
-            BluetoothCodecConfig.CHANNEL_MODE_MONO,
-            BluetoothCodecConfig.CHANNEL_MODE_DUAL_CHANNEL};
+            BluetoothCodecConfig.CHANNEL_MODE_MONO};
 
     protected final BluetoothA2dpConfigStore mBluetoothA2dpConfigStore;
 
@@ -227,7 +224,6 @@ public abstract class AbstractBluetoothDialogPreferenceController extends
             Log.d(TAG, "Unable to get highest codec. Configs are empty");
             return BluetoothCodecConfig.SOURCE_CODEC_TYPE_INVALID;
         }
-        Log.d(TAG, "CODEC_TYPES len: " + CODEC_TYPES.length + " codec_config len: " + configs.length);
         for (int i = 0; i < CODEC_TYPES.length; i++) {
             for (int j = 0; j < configs.length; j++) {
                 if ((configs[j].getCodecType() == CODEC_TYPES[i])) {
